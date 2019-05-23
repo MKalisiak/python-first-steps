@@ -331,3 +331,86 @@ for i in range(3):
         break
 else:
     print("Loop completed without breaking")
+
+print()
+
+print('===================================================================================================')
+print()
+
+print("To define functions use 'def' keyword followed by function name, arguments and indented body")
+print('''
+def print_greeting(name):
+    print(f"Hello {name}")
+
+print_greeting('Michał')
+''')
+
+def print_greeting(name):
+    print(f"Hello {name}")
+
+print_greeting('Michał')
+
+print()
+
+print("Arguments can optionally have a desired type with syntax 'argument_name: type'")
+print("Also, a function can have a return type with syntax 'def function_name(arguments) -> return_type'")
+print('''
+def print_fibonacci(bound: int) -> None:
+    a, b = 0, 1
+    while a < bound:
+        print(a, end=" ")
+        a, b = b, a+b
+    print()
+
+print_fibonacci(2000)
+''')
+def print_fibonacci(bound: int) -> None:
+    a, b = 0, 1
+    while a < bound:
+        print(a, end=" ")
+        a, b = b, a+b
+    print()
+
+print_fibonacci(2000)
+
+print()
+
+print("Arguments can have default values so that if they are not passed\n"
+      "when the function is called they take on their default values")
+print("Arguments without a default value are required")
+print('''
+def alien_greeting(name, planet="Squanch", attitude="love"):
+    print(f"I am {name} from planet {planet}. I {attitude} mankind.")
+
+alien_greeting("Squanchy")\
+''')
+
+def alien_greeting(name, planet="Squanch", attitude="love"):
+    print(f"I am {name} from planet {planet}. I {attitude} mankind.")
+
+alien_greeting("Squanchy")
+print('alien_greeting("Abradolf Lincler", "Earth", "hate")')
+alien_greeting("Abradolf Lincler", "Earth", "hate")
+
+print()
+
+print("Arguments can be given by name (they are then called keyword arguments), then their order does not matter")
+print()
+print("alien_greeting(attitude='despise', name='Thanos', planet='Titan')")
+alien_greeting(attitude='despise', name='Thanos', planet='Titan')
+
+print()
+print("Positional arguments (not given by name) have to go before the keyword arguments")
+print("alien_greeting('Thanos', attitude='despise', planet='Titan')")
+alien_greeting('Thor Odinson', attitude='like', planet='Asgard')
+print()
+print("Calling a function like this would throw an error:")
+print("alien_greeting(attitude='despise', 'Thanos', planet='Titan')")
+print("(which is actually fine, because it would be unreadable)")
+
+print()
+
+print('===================================================================================================')
+print()
+
+
