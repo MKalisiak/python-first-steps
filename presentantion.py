@@ -401,6 +401,7 @@ alien_greeting(attitude='despise', name='Thanos', planet='Titan')
 
 print()
 print("Positional arguments (not given by name) have to go before the keyword arguments")
+print()
 print("alien_greeting('Thanos', attitude='despise', planet='Titan')")
 alien_greeting('Thor Odinson', attitude='like', planet='Asgard')
 print()
@@ -413,4 +414,73 @@ print()
 print('===================================================================================================')
 print()
 
+print("Tuples are similar to lists, but are immutable (like strings)")
+print("They can be indexed, iterated over")
+print("Usually lists are used to store the same type of data and are iterated over,")
+print("while tuples are usually used with different types of data and are indexed")
+print('''
+person = ("Michał", "Kalisiak", 22)
+first_name, last_name, age = person
+print(f"{first_name} {last_name} aged {age}")
+''')
 
+person = ("Michał", "Kalisiak", 22)
+first_name, last_name, age = person
+print(f"{first_name} {last_name} aged {age}")
+
+print()
+
+print('===================================================================================================')
+print()
+
+print("Dictionaries (or dicts) are sets of 'key: value' pairs")
+print("Dictionaries are indexed by keys, keys can be strings or numbers")
+print('''
+person = {"first_name": "Michał", "last_name": "Kalisiak", "age": 22}
+print(person["first_name"])\
+''')
+person = {"first_name": "Michał", "last_name": "Kalisiak", "age": 22}
+print(person["first_name"])
+
+print()
+
+print("Iterating over a dict iterates over its keys")
+print('''
+for key in person:
+    print(key, person[key])
+''')
+for key in person:
+    print(key, person[key])
+
+print()
+
+print("A more elegant of doing the same would be:")
+print('''
+for key, value in person.items():
+    print(key, value)
+''')
+for key, value in person.items():
+    print(key, value)
+
+print()
+
+print('===================================================================================================')
+print()
+
+print("List comprehension is a powerful mechanism of creating lists")
+print('''
+squares = [i**2 for i in range(11)]
+print(squares)\
+''')
+squares = [i**2 for i in range(11)]
+print(squares)
+
+print()
+
+print("Dict comprehension is very similar but for dictionaries")
+print('''
+squares = {x: x ** 2 for x in range(11)}
+print(squares)\
+''')
+squares = {x: x ** 2 for x in range(11)}
+print(squares)
