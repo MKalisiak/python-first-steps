@@ -434,6 +434,26 @@ print()
 print('===================================================================================================')
 print()
 
+print("Sets are similar to lists with a few differences:")
+print(" - they cannot contain duplicates")
+print(" - they cannot be indexed - the elements are not in order")
+print(" - they are created with curly braces {item, item2}")
+
+print('''
+a = {1, 1, 2, 3, 3}
+for item in a:
+    print(item)
+''')
+
+a = {1, 1, 2, 3, 3}
+for item in a:
+    print(item)
+
+print()
+
+print('===================================================================================================')
+print()
+
 print("Dictionaries (or dicts) are sets of 'key: value' pairs")
 print("Dictionaries are indexed by keys, keys can be strings or numbers")
 print('''
@@ -475,6 +495,16 @@ print(squares)\
 ''')
 squares = [i**2 for i in range(11)]
 print(squares)
+
+print()
+
+print("Conditions can be used in list comprehension")
+print('''
+even = [i for i in range(11) if i % 2 == 0]
+print(even)\
+''')
+even = [i for i in range(11) if i % 2 == 0]
+print(even)
 
 print()
 
