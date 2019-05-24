@@ -484,3 +484,76 @@ print(squares)\
 ''')
 squares = {x: x ** 2 for x in range(11)}
 print(squares)
+
+print()
+
+print('===================================================================================================')
+print()
+
+print("Be careful when accessing dict values.")
+print("If you try to use a key which is not in the dict an error will be thrown")
+print('''
+d = {'foo': 'bar'}
+
+Calling d['unknown'] would throw an error (try it for yourself)
+What you could do is catch the error and handle it somehow:
+
+try:
+    print(d['unknown'])
+except KeyError:
+    print("Dict has no such key")
+''')
+
+d = {'foo': 'bar'}
+
+try:
+    print(d['unknown'])
+except KeyError:
+    print("Dict has no such key")
+
+print()
+print("You could also use dict.get(key) method which returns None if the key is not present")
+print("print(d.get('unknown'))")
+print(d.get('unknown'))
+
+print()
+
+print("Or check if the key is present in a dict")
+print('''
+if "unknown" in d:
+    print(d["unknown"])
+else:
+    print("It's not there")
+''')
+
+if "unknown" in d:
+    print(d["unknown"])
+else:
+    print("It's not there")
+
+print()
+
+print('===================================================================================================')
+print()
+
+print("To get user input use builtin input() function")
+print("It prompts the user to type something and takes an optional argument used as a prompt")
+
+print('''
+user_input = input('Echo: ')
+''')
+
+user_input = input('Echo: ')
+print("print(user_input)")
+print(user_input)
+
+print()
+
+print("User input is always treated as a string, so if you want to use it as\n"
+      "something else, you will have to cast it (for example with builtin int() function)")
+print('''
+user_input = input('Type any number of ints (space separated): ')
+''')
+user_input = input('Type any number of ints (space separated): ')
+print("print(sum([int(x) for x in user_input.strip().split(' ')]))")
+print(sum([int(x) for x in user_input.strip().split(' ')]))
