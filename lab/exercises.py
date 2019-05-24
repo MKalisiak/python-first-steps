@@ -7,6 +7,7 @@ def describe_list(arg: list) -> list:
     """
     pass
 
+
 def print_christmas_tree(width: int, height: int = 3, character: str = '*') -> None:
     """
     Note: if you want the tests to pass remember the spaces after the characters printing the tree
@@ -20,7 +21,7 @@ def print_christmas_tree(width: int, height: int = 3, character: str = '*') -> N
       ^
      ^^^
     ^^^^^
-    
+
     :param width: has to be an odd number, number of characters in the lowest row
     :param height: number of triangle parts of the tree
     :param character: character used to print the tree
@@ -29,6 +30,7 @@ def print_christmas_tree(width: int, height: int = 3, character: str = '*') -> N
     If you have time, throw an error if width is even or if character is not exactly 1 char
     """
     pass
+
 
 def remove_duplicates_loop(arg: list) -> list:
     """
@@ -41,6 +43,7 @@ def remove_duplicates_loop(arg: list) -> list:
     """
     pass
 
+
 def remove_duplicates_set(arg: list) -> list:
     """
     Remove duplicates from a list using a set
@@ -51,6 +54,7 @@ def remove_duplicates_set(arg: list) -> list:
     :return: list with the same elements as arg, but without duplicates
     """
     pass
+
 
 def flatten_dicts(dicts: list) -> dict:
     """
@@ -69,6 +73,7 @@ def flatten_dicts(dicts: list) -> dict:
     :return: dict that is a concatenation of dicts in param dicts
     """
     pass
+
 
 def primes(limit: int) -> list:
     """
