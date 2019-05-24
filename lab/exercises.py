@@ -5,23 +5,22 @@ def describe_list(arg: list) -> list:
 
     The best solution would be a one-liner, but whatever works is fine
     """
-    pass
-
+    # return [(index, arg[index]) for index in range(len(arg))]
+    return [(index, value) for index, value in enumerate(arg)]
 
 def print_christmas_tree(width: int, height: int = 3, character: str = '*') -> None:
     """
-    Note: if you want the tests to pass remember the spaces after the characters printing the tree
-          each line has to have exactly <width> characters, including the spaces.
-          It won't affect appearance, just the tests :)
     Example:
-    print_christmas_tree(width=5, height=2, character='^')
-      ^
-     ^^^
-    ^^^^^
-      ^
-     ^^^
-    ^^^^^
-
+    print_christmas_tree(5)
+      *
+     ***
+    *****
+      *
+     ***
+    *****
+      *
+     ***
+    *****
     :param width: has to be an odd number, number of characters in the lowest row
     :param height: number of triangle parts of the tree
     :param character: character used to print the tree
@@ -29,8 +28,10 @@ def print_christmas_tree(width: int, height: int = 3, character: str = '*') -> N
 
     If you have time, throw an error if width is even or if character is not exactly 1 char
     """
-    pass
-
+    for triangle in range(height):
+        for row in range(1, width+1, 2):
+            spaces = (width - row) // 2
+            print(' ' * spaces + character * row + ' ' * spaces)
 
 def remove_duplicates_loop(arg: list) -> list:
     """
@@ -41,8 +42,11 @@ def remove_duplicates_loop(arg: list) -> list:
     :param arg: list to remove duplicates from
     :return: list with the same elements as arg, but without duplicates
     """
-    pass
-
+    deduplicated = []
+    for item in arg:
+        if item not in deduplicated:
+            deduplicated.append(item)
+    return deduplicated
 
 def remove_duplicates_set(arg: list) -> list:
     """
@@ -53,8 +57,7 @@ def remove_duplicates_set(arg: list) -> list:
     :param arg: list to remove duplicates from
     :return: list with the same elements as arg, but without duplicates
     """
-    pass
-
+    return list(set(arg))
 
 def flatten_dicts(dicts: list) -> dict:
     """
@@ -72,19 +75,33 @@ def flatten_dicts(dicts: list) -> dict:
     :param dicts: list of dictionaries, assume keys are any type, values are numbers
     :return: dict that is a concatenation of dicts in param dicts
     """
-    pass
-
+    result = {}
+    for _dict in dicts:
+        for key, value in _dict.items():
+            if key in result:
+                result[key] = result[key] + value
+            else:
+                result[key] = value
+    return result
 
 def primes(limit: int) -> list:
     """
     Create a list of prime numbers from 0 to limit (inclusive)
-    ProTip   - you can create a function inside a function, it's called inner function
-               (not that it's necessary here, it just looks cool)
-    ProTip#2 - if you use a function (inner or not) here it is possible to write the solution as a one-liner
+    ProTip - you can create a function inside a function (not that it's necessary here, it just looks cool)
     Example:
     primes(7) == [2, 3, 5, 7]
 
     :param limit: the upper bound of prime search (inclusive)
     :return: list of prime numbers between 0 and limit
     """
-    pass
+    def is_prime(number: int) -> bool:
+        if number == 0 or number == 1:
+            return False
+        if number == 2:
+            return True
+        for check_number in range(2, (number // 2) + 1):
+            if number % check_number == 0:
+                return False
+        return True
+
+    return [x for x in range(limit+1) if is_prime(x)]

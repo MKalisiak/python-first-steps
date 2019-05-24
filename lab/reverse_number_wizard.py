@@ -28,6 +28,80 @@
 #
 # GOOD LUCK and HAVE FUN :)
 
-import random
 
-print(random.randint(1, 100)) # both bounds are inclusive
+import argparse
+import random
+import math
+import sys
+
+# Note that it could have been done completely differently, it's just my take on the problem
+parser = argparse.ArgumentParser(prog='reverse_number_wizard', description='Play Reverse Number Wizard with custom ruleset.')
+parser.add_argument('-l', '--lower', type=int, default=1, help='lower bound')
+parser.add_argument('-u', '--upper', type=int, default=100 , help='upper bound')
+parser.add_argument('-d', '--difficulty', type=str, default='easy', help='difficulty should be one of {easy, medium, hard}')
+
+args = parser.parse_args()
+
+difficulty_levels = {
+    'easy': math.inf,
+    'medium': math.ceil(math.log(args.upper - args.lower + 1, 2)),
+    'hard': math.floor(math.log(args.upper - args.lower + 1, 2) / 2)
+}
+
+if args.difficulty not in difficulty_levels:
+    print(f"Unknown difficulty level - {args.difficulty}", file=sys.stderr)
+    parser.print_help(file=sys.stderr)
+    exit(1)
+
+def prompt_to_play_again():
+    answer = input("Want to play again? (y/N)")
+    if answer.lower().startswith('y'):
+        chosen_number = random.randint(args.lower, args.upper)
+        guess_count = 0
+        return chosen_number, guess_count, True
+    else:
+        return None, None, False
+
+chosen_number = random.randint(args.lower, args.upper)
+
+guess_count = 0
+
+print("Welcome! I am the Great and Powerful Reverse Number Wizard!")
+print(f"I have chosen a number between {args.lower} and {args.upper}.")
+print(f"Try to guess it. "
+      f"You have {difficulty_levels[args.difficulty] if difficulty_levels[args.difficulty] != math.inf else 'infinite'} tries")
+
+while True:
+    guess = input("Your guess: ")
+
+    try:
+        guess = int(guess)
+    except ValueError:
+        print("Only numbers please")
+        continue
+
+    guess_count += 1
+
+    if guess == chosen_number:
+        print("I admit I am impressed you managed to guess it.")
+        chosen_number, guess_count, play_again = prompt_to_play_again()
+        if play_again:
+            continue
+        else:
+            print("Next time I will not lose")
+            exit(0)
+
+    if guess_count >= difficulty_levels[args.difficulty]:
+        print("I knew you were too weak to do it. I am not even sorry for you, mortal.")
+        chosen_number, guess_count, play_again = prompt_to_play_again()
+        if play_again:
+            continue
+        else:
+            print("That was expected, cower in fear before my power")
+            exit(0)
+
+    if guess < chosen_number:
+        print(random.choice(["My number is higher", "That is too low", "Do mortals only know such low numbers?"]))
+
+    else:
+        print(random.choice(["My number is lower", "That is too high", "What, do you think I have something to compensate for? Lower..."]))
