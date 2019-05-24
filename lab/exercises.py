@@ -78,7 +78,9 @@ def flatten_dicts(dicts: list) -> dict:
 def primes(limit: int) -> list:
     """
     Create a list of prime numbers from 0 to limit (inclusive)
-    ProTip - you can create a function inside a function (not that it's necessary here, it just looks cool)
+    ProTip   - you can create a function inside a function, it's called inner function
+               (not that it's necessary here, it just looks cool)
+    ProTip#2 - if you use a function (inner or not) here it is possible to write the solution as a one-liner
     Example:
     primes(7) == [2, 3, 5, 7]
 
