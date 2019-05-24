@@ -418,6 +418,7 @@ print("Tuples are similar to lists, but are immutable (like strings)")
 print("They can be indexed, iterated over")
 print("Usually lists are used to store the same type of data and are iterated over,")
 print("while tuples are usually used with different types of data and are indexed")
+print("Tuples can be unpacked (see below) to assign their values to several variables")
 print('''
 person = ("Michał", "Kalisiak", 22)
 first_name, last_name, age = person
