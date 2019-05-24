@@ -5,12 +5,11 @@ parser.add_argument('integers', type=int, nargs='+', help='an integer', metavar=
 parser.add_argument('--sum', action='store_true', help='sum the integers')
 parser.add_argument('--max', action='store_true', help='find max of the integers')
 parser.add_argument('--min', action='store_true', help='find min of the integers')
-parser.add_argument('-g', '--greeting', type=str, action='store', help='a greeting to display')
+parser.add_argument('-g', '--greeting', type=str, default='Hello', help='a greeting to display')
 
 args = parser.parse_args()
 
-if args.greeting:
-    print(args.greeting)
+print(args.greeting)
 
 print("Your provided integers:")
 print(args.integers)
