@@ -1,6 +1,6 @@
 import argparse
 
-parser = argparse.ArgumentParser(description='Process some integers.')
+parser = argparse.ArgumentParser(prog='argparse_example', description='Process some integers.')
 parser.add_argument('integers', type=int, nargs='+', help='an integer', metavar='N')
 parser.add_argument('--sum', action='store_true', help='sum the integers')
 parser.add_argument('--max', action='store_true', help='find max of the integers')
