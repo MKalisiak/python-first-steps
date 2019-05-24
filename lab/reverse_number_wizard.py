@@ -10,10 +10,11 @@
 # It should use argparse for the user to be able to set the bounds and difficulty level.
 #
 # The player should be able to use command line arguments to set the difficulty level of the game resulting in
-# the maximum number of guesses before the player loses the game. Make it anything you like, for EXAMPLE:
+# the maximum number of guesses before the player loses the game. Make it anything you like, for example:
 # easy:   infinite tries
 # medium: 7 tries
 # hard:   3 tries
+# You could even make the number of guesses depend on the range from which the game chooses a number
 #
 # The player should be able to use command line arguments to set the bounds of the set from which the game picks
 # a random number (both inclusive).
