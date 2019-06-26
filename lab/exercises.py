@@ -1,11 +1,13 @@
-def describe_list(arg: list) -> list:
+def describe_list(list_name: list) -> list:
     """
     Should return a list of tuples looking like this:
     [ (element_index, element), (element_index, element), ... ]
 
     The best solution would be a one-liner, but whatever works is fine
     """
-    pass
+
+    a_list = [(i, list_name[i]) for i in range(len(list_name))]
+    return a_list
 
 
 def print_christmas_tree(width: int, height: int = 3, character: str = '*') -> None:
