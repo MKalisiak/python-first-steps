@@ -43,7 +43,15 @@ def remove_duplicates_loop(arg: list) -> list:
     :param arg: list to remove duplicates from
     :return: list with the same elements as arg, but without duplicates
     """
-    pass
+    list_a = [arg[0]]
+    for i in range(1, len(arg)):
+        # if arg[i] == arg[i-1]:
+        for j in range(i-1, -1, -1):
+            if arg[i] == arg[j]:
+                break
+        else:
+            list_a.append(arg[i])
+    return list_a
 
 
 def remove_duplicates_set(arg: list) -> list:
