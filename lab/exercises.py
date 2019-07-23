@@ -1,3 +1,4 @@
+import math
 def describe_list(list_name: list) -> list:
     """
     Should return a list of tuples looking like this:
@@ -67,7 +68,7 @@ def remove_duplicates_set(arg: list) -> list:
     :param arg: list to remove duplicates from
     :return: list with the same elements as arg, but without duplicates
     """
-    pass
+    return list(set(arg))
 
 
 def flatten_dicts(dicts: list) -> dict:
@@ -89,6 +90,7 @@ def flatten_dicts(dicts: list) -> dict:
     pass
 
 
+
 def primes(limit: int) -> list:
     """
     Create a list of prime numbers from 0 to limit (inclusive)
@@ -101,4 +103,21 @@ def primes(limit: int) -> list:
     :param limit: the upper bound of prime search (inclusive)
     :return: list of prime numbers between 0 and limit
     """
-    pass
+    # list_done=[]
+    # for i in range(limit+1):
+    #     if check_if_prime(i):
+    #         list_done.append(i)
+    #
+    # return list_done
+    return [i for i in range(limit+1) if check_if_prime(i)]
+
+def check_if_prime(number: int) -> bool:
+    if number == 0 or number == 1:
+        return False
+    for i in range(2, number):
+        if number % i == 0:
+            return False
+    return True
+
+print(primes(69))
+
