@@ -29,8 +29,16 @@ def print_christmas_tree(width: int, height: int = 3, character: str = '*') -> N
 
     If you have time, throw an error if width is even or if character is not exactly 1 char
     """
-    pass
+    for i in range(height):
+        empte = (width - 1) // 2
+        for j in range((width+1)//2):
+            print(' ' * empte, end='')
+            print(character * (width-empte*2), end='')
+            print(' ' * empte)
+            empte = empte - 1
 
+
+print_christmas_tree(5, height=2)
 
 def remove_duplicates_loop(arg: list) -> list:
     """
