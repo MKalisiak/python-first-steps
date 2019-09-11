@@ -38,20 +38,30 @@ def print_christmas_tree(width: int, height: int = 3, character: str = '*') -> N
             empte = empte - 1
 
 
-print_christmas_tree(5, height=2)
-
 def remove_duplicates_loop(arg: list) -> list:
     """
     Remove duplicates from a list using a loop
     Example:
-    remove_duplicates_set([1, 2, 3, 1, 5, 3, 2, 7]) == [1, 2, 3, 5, 7]
+    remove_duplicates_loop([1, 2, 3, 1, 5, 3, 2, 7]) == [1, 2, 3, 5, 7]
 
     :param arg: list to remove duplicates from
     :return: list with the same elements as arg, but without duplicates
     """
-    pass
+    checking_list = []
+    result_list = []
+    checking_list.append(arg[0])
+    result_list.append(arg[0])
+    for element in arg:
+        found_duplicate = False
+        for check_item in checking_list:
+            if element == check_item:
+                found_duplicate = True
+        if not found_duplicate:
+            result_list.append(element)
+            checking_list.append(element)
+    return result_list
 
-
+print(remove_duplicates_loop([8,8,8,9,5,4,5,8,9]))
 def remove_duplicates_set(arg: list) -> list:
     """
     Remove duplicates from a list using a set
